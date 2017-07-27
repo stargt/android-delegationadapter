@@ -56,8 +56,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    compile 'com.github.toss:delegationadapter:1.0.0'
-}
+    compile 'com.github.toss:android-delegationadapter:1.0.0'
 ```
 
 ## License
