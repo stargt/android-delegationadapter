@@ -43,8 +43,7 @@ class AnimalAdapter extends ListItemDelegationAdapter<DisplayableItem> {
 ```
 
 ## Dependencies
-
-[![](https://jitpack.io/v/toss/delegationadapter.svg)](https://jitpack.io/#toss/delegationadapter)
+[![](https://jitpack.io/v/toss/android-delegationadapter.svg)](https://jitpack.io/#toss/android-delegationadapter)
 
 ```groovy
 allprojects {
