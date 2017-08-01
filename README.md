@@ -1,6 +1,6 @@
 # DelegationAdapter
 
-Super easy way to create and maintain the painful Android RecyclerView Adapter with various ItemView types. This library is backed by the great [https://github.com/sockeqwe/AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates).
+Super easy way to create and maintain the painful Android RecyclerView Adapter with various ItemView types. This is backed by the library [sockeqwe/AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates).
 
 ## Java Sample
 
