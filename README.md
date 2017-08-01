@@ -7,33 +7,33 @@ Super easy way to create and maintain the painful Android RecyclerView Adapter w
 ```groovy
 class AnimalAdapter extends ListItemDelegationAdapter<DisplayableItem> {
 
-  AnimalAdapter() {
+AnimalAdapter() {
 
-    addDelegate(createDelegateBuilder(Advertisement.class)
-      .layout(R.layout.item_advertisement)
-      .build());
+  addDelegate(createDelegateBuilder(Advertisement.class)
+    .layout(R.layout.item_advertisement)
+    .build());
 
-    addDelegate(createDelegateBuilder(Cat.class)
-       .layout(R.layout.item_cat)
-       .binder((vh, cat) -> {
-          vh.getView(R.id.name, TextView.class).setText(cat.getName());
-        })
-       .build());
+  addDelegate(createDelegateBuilder(Cat.class)
+    .layout(R.layout.item_cat)
+    .binder((vh, cat) -> {
+      vh.getView(R.id.name, TextView.class).setText(cat.getName());
+    })
+    .build());
 
-    addDelegate(createDelegateBuilder(Dog.class)
-        .layout(R.layout.item_dog)
-        .binder((vh, dog) -> {
-            vh.getView(R.id.name, TextView.class).setText(dog.getName());
-        })
-        .build());
+  addDelegate(createDelegateBuilder(Dog.class)
+    .layout(R.layout.item_dog)
+    .binder((vh, dog) -> {
+      vh.getView(R.id.name, TextView.class).setText(dog.getName());
+    })
+    .build());
 
-    setFallbackDelegate(createDelegateBuilder(DisplayableItem.class)
-        .layout(android.R.layout.simple_list_item_1)
-        .binder((vh, item) -> {
-            vh.getView(android.R.id.text1, TextView.class).setText(item.toString());
-        })
-        .build());
-    }
+  setFallbackDelegate(createDelegateBuilder(DisplayableItem.class)
+    .layout(android.R.layout.simple_list_item_1)
+    .binder((vh, item) -> {
+      vh.getView(android.R.id.text1, TextView.class).setText(item.toString());
+    })
+    .build());
+  }
 }
 
 RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
