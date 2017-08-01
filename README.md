@@ -1,85 +1,79 @@
 # DelegationAdapter
 
-Super easy way to create and maintain the painful Android RecyclerView Adapter with various ItemView types. This 
-library is backed by the library as known as [AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates).
+Super easy way to create and maintain the painful Android RecyclerView Adapter with various ItemView types. This library is backed by the great [https://github.com/sockeqwe/AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates).
 
 ## Java Sample
 
 ```groovy
-class AnimalAdapter extends ListItemDelegationAdapter<Object> {
+class AnimalAdapter extends ListItemDelegationAdapter<DisplayableItem> {
 
-    AnimalAdapter() {
+  AnimalAdapter() {
 
-        addDelegate(createDelegateBuilder(Advertisement.class)
-                .layout(R.layout.item_advertisement)
-                .build());
+    addDelegate(createDelegateBuilder(Advertisement.class)
+      .layout(R.layout.item_advertisement)
+      .build());
 
-        addDelegate(createDelegateBuilder(Cat.class)
-                .layout(R.layout.item_cat)
-                .binder((vh, cat) -> {
-                    vh.getView(R.id.name, TextView.class).setText(cat.getName());
-                })
-                .build());
+    addDelegate(createDelegateBuilder(Cat.class)
+       .layout(R.layout.item_cat)
+       .binder((vh, cat) -> {
+          vh.getView(R.id.name, TextView.class).setText(cat.getName());
+        })
+       .build());
 
-        addDelegate(createDelegateBuilder(Dog.class)
-                .layout(R.layout.item_dog)
-                .binder((vh, dog) -> {
-                    vh.getView(R.id.name, TextView.class).setText(dog.getName());
-                })
-                .build());
+    addDelegate(createDelegateBuilder(Dog.class)
+        .layout(R.layout.item_dog)
+        .binder((vh, dog) -> {
+            vh.getView(R.id.name, TextView.class).setText(dog.getName());
+        })
+        .build());
 
-        setFallbackDelegate(createDelegateBuilder(DisplayableItem.class)
-                .layout(android.R.layout.simple_list_item_1)
-                .binder((vh, item) -> {
-                    vh.getView(android.R.id.text1, TextView.class).setText(item.toString());
-                })
-                .build());
+    setFallbackDelegate(createDelegateBuilder(DisplayableItem.class)
+        .layout(android.R.layout.simple_list_item_1)
+        .binder((vh, item) -> {
+            vh.getView(android.R.id.text1, TextView.class).setText(item.toString());
+        })
+        .build());
     }
 }
+
+RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+recyclerView.setLayoutManager(new LinearLayoutManager(this));
+AnimalAdapter adapter = new AnimalAdapter();
+adapter.setItems(getAnimals());
+recyclerView.setAdapter(adapter);
+
 ```
 
 ## Kotlin Sample
-
+No Kotlin specific build provided currently but it can be used liked this:
 ```groovy
- adapter = ListItemDelegationAdapter<DisplayableItem>().apply {
+val animalAdapter = ListItemDelegationAdapter<DisplayableItem>().apply {
 
-    addDelegate(createDelegateBuilder(Advertisement::class.java)
-            .layout(R.layout.item_advertisement)
-            .build())
+  addDelegate(createDelegateBuilder(Advertisement::class.java)
+    .layout(R.layout.item_advertisement)
+    .build())
 
-    addDelegate(createDelegateBuilder(Cat::class.java)
-            .layout(R.layout.item_cat)
-            .binder { vh, cat, payloads -> vh.getView(R.id.name, TextView::class.java).text = cat.name }
-            .build())
+  addDelegate(createDelegateBuilder(Cat::class.java)
+    .layout(R.layout.item_cat)
+    .binder { vh, cat, payloads -> vh.getView(R.id.name, TextView::class.java).text = cat.name }
+    .build())
 
-    addDelegate(createDelegateBuilder(Dog::class.java)
-            .layout(R.layout.item_dog)
-            .binder { vh, dog -> vh.getView(R.id.name, TextView::class.java).text = dog.name }
-            .build())
-
-    addDelegate(createDelegateBuilder(Gecko::class.java)
-            .layout(R.layout.item_gecko)
-            .binder { vh, gecko ->
-                (vh.getView(R.id.name) as TextView).text = gecko.name
-                (vh.getView(R.id.race) as TextView).text = gecko.race
-            }
-            .build())
-
-    addDelegate(createDelegateBuilder(Snake::class.java)
-            .layout(R.layout.item_snake)
-            .binder { vh, snake ->
-                vh.getView(R.id.name, TextView::class.java).text = snake.name
-                vh.getView(R.id.race, TextView::class.java).text = snake.race
-            }
-            .build())
-
-    setFallbackDelegate(createDelegateBuilder(DisplayableItem::class.java)
-            .layout(android.R.layout.simple_list_item_1)
-            .binder { vh, item, payloads -> vh.getView(android.R.id.text1, TextView::class.java).text = item.toString() }
-            .build())
-
-    items = getAnimals()
+  addDelegate(createDelegateBuilder(Dog::class.java)
+    .layout(R.layout.item_dog)
+    .binder { vh, dog -> vh.getView(R.id.name, TextView::class.java).text = dog.name }
+    .build())
+    
+  setFallbackDelegate(createDelegateBuilder(DisplayableItem::class.java)
+    .layout(android.R.layout.simple_list_item_1)
+    .binder { vh, item, payloads -> vh.getView(android.R.id.text1, TextView::class.java).text = item.toString() }
+    .build())
 }
+
+recyclerView.apply {
+  layoutManager = LinearLayoutManager(context)
+  adapter = animalAdapter
+}
+
 ```
 
 ## Dependencies
@@ -87,21 +81,23 @@ class AnimalAdapter extends ListItemDelegationAdapter<Object> {
 
 ```groovy
 allprojects {
-    repositories {
-        ...
-        maven { url 'https://jitpack.io' }
-    }
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+  }
 }
 ```
 
 ```groovy
 dependencies {
-    compile 'com.github.toss:android-delegationadapter:1.0.1'
+  compile 'com.github.toss:android-delegationadapter:1.0.1'
 ```
 
 ## License
 
 ```
+Copyright 2017 Viva Republica, Inc.
+
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
