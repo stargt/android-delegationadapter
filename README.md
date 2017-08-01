@@ -45,7 +45,7 @@ recyclerView.setAdapter(adapter);
 ```
 
 ## Kotlin Sample
-No Kotlin specific build provided currently but it can be used liked this:
+Although Kotlin specific build is not provided for now, you can use it like this:
 ```groovy
 val animalAdapter = ListItemDelegationAdapter<DisplayableItem>().apply {
 
