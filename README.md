@@ -77,20 +77,18 @@ recyclerView.apply {
 ```
 
 ## Dependencies
-[![](https://jitpack.io/v/toss/android-delegationadapter.svg)](https://jitpack.io/#toss/android-delegationadapter)
 
 ```groovy
 allprojects {
   repositories {
-    ...
-    maven { url 'https://jitpack.io' }
+    jcenter()
   }
 }
 ```
 
 ```groovy
 dependencies {
-  compile 'com.github.toss:android-delegationadapter:1.0.1'
+  compile 'im.toss:android-delegationadapter:1.0.1'
 ```
 
 ## License
