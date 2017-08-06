@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme"
         >
         <activity
-            android:name=".MainActivity"
+            android:name=".MainJavaActivity"
             android:label="DelegationAdapter1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -19,7 +19,7 @@
         </activity>
 
         <activity
-            android:name=".Main2Activity"
+            android:name=".MainKotlinActivity"
             android:label="DelegationAdapter2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

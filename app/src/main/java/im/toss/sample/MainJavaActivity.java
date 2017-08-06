@@ -22,7 +22,7 @@ import im.toss.sample.model.Dog;
 import im.toss.sample.model.Gecko;
 import im.toss.sample.model.Snake;
 
-public class MainActivity extends AppCompatActivity {
+public class MainJavaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

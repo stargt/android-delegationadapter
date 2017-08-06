@@ -63,10 +63,10 @@ public class ListItemAdapterDelegate<I extends T, T> extends AbsListItemAdapterD
         private ViewBinder<I> viewBinder;
         private ViewBinderWithoutPayloads<I> viewBinderWithoutPayloads;
 
-        Builder() {
+        public Builder() {
         }
 
-        Builder<I,T> typeChecker(ViewTypeChecker<T> val) {
+        public Builder<I,T> typeChecker(ViewTypeChecker<T> val) {
             typeChecker = val;
             return this;
         }

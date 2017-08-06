@@ -45,34 +45,40 @@ recyclerView.setAdapter(adapter);
 ```
 
 ## Kotlin Sample
-Although Kotlin specific build is not provided for now, you can use it like this:
 ```groovy
-val animalAdapter = ListItemDelegationAdapter<DisplayableItem>().apply {
+class AnimalAdapter : ListItemDelegationKtAdapter<DisplayableItem>() {
 
-  addDelegate(createDelegateBuilder(Advertisement::class.java)
+init {
+  // setup adapter delegates
+  addDelegate(newDelegateBuilder<Advertisement>()
     .layout(R.layout.item_advertisement)
     .build())
 
-  addDelegate(createDelegateBuilder(Cat::class.java)
+  addDelegate(newDelegateBuilder<Cat>()
     .layout(R.layout.item_cat)
-    .binder { vh, cat, payloads -> vh.getView(R.id.name, TextView::class.java).text = cat.name }
+    .binder { vh, cat -> vh.findView<TextView>(R.id.name).text = cat.name }
     .build())
 
-  addDelegate(createDelegateBuilder(Dog::class.java)
+  addDelegate(newDelegateBuilder<Dog>()
     .layout(R.layout.item_dog)
-    .binder { vh, dog -> vh.getView(R.id.name, TextView::class.java).text = dog.name }
+    .binder { vh, dog -> vh.findView<TextView>(R.id.name).text = dog.name }
     .build())
-    
+
   setFallbackDelegate(createDelegateBuilder(DisplayableItem::class.java)
     .layout(android.R.layout.simple_list_item_1)
-    .binder { vh, item, payloads -> vh.getView(android.R.id.text1, TextView::class.java).text = item.toString() }
+    .binder { vh, item -> vh.findView<TextView>(android.R.id.text1).text = item.toString() }
     .build())
+  }
 }
+
+val animalAdapter = AnimalAdapter()
 
 recyclerView.apply {
   layoutManager = LinearLayoutManager(context)
   adapter = animalAdapter
 }
+
+adapter.setItems(getAnimal())
 
 ```
 
@@ -88,7 +94,11 @@ allprojects {
 
 ```groovy
 dependencies {
-  compile 'im.toss:android-delegationadapter:1.0.1'
+  // For Java Only
+  compile 'im.toss:android-delegationadapter:1.0.2'
+
+  // For Kotlin and Java Support 
+  compile 'im.toss:android-delegationadapter-kotlin:1.0.2'
 ```
 
 ## License
