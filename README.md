@@ -97,8 +97,8 @@ dependencies {
   // For Java Only
   compile 'im.toss:android-delegationadapter:1.0.2'
 
-  // For Kotlin and Java Support 
-  compile 'im.toss:android-delegationadapter-kotlin:1.0.2'
+  // For Kotlin and Java Support
+  compile 'im.toss:android-delegationadapter-kotlin:1.0.3'
 ```
 
 ## License

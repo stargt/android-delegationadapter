@@ -5,6 +5,8 @@ buildscript {
 
     ext {
         kotlinVersion = '1.1.3-2'
+        lib_java_publish_version = '1.0.2'
+        lib_kotlin_publish_version = '1.0.3'
     }
 
     repositories {

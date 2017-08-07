@@ -36,6 +36,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
     provided 'com.android.support:recyclerview-v7:25.1.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    compile project(':library')
     compile project(':library-kotlin')
 }
