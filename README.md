@@ -94,10 +94,10 @@ allprojects {
 
 ```groovy
 dependencies {
-  // For Java Only
+  // For Java
   compile 'im.toss:android-delegationadapter:1.0.4'
 
-  // For Kotlin and Java Support
+  // For Kotlin
   compile 'im.toss:android-delegationadapter-kotlin:1.0.4'
 ```
 
