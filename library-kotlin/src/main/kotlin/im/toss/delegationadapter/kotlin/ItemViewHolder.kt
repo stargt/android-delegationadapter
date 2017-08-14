@@ -31,8 +31,12 @@ class ItemViewHolder<T> private constructor(itemView: View) : RecyclerView.ViewH
   inline fun <reified T : View> findView(@IdRes viewId: Int): T? {
     var view: T? = viewCache.get(viewId) as T?
     if (view == null) {
-      view = itemView.findViewById(viewId) as T
-      viewCache.put(viewId, view)
+      view = itemView.findViewById(viewId) as T?
+      if (view != null) {
+        viewCache.put(viewId, view)
+      } else {
+        viewCache.remove(viewId)
+      }
     }
     return view
   }
