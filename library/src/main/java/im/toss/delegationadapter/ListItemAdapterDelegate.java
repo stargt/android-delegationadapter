@@ -12,7 +12,7 @@ import java.util.List;
  * More simple way to create {@link AbsListItemAdapterDelegate} with less boiler plate code
  * @param <T> The type of the item that is managed by this AdapterDelegate.
  */
-public class ListItemAdapterDelegate<I extends T, T> extends AbsListItemAdapterDelegate<I, T, ItemViewHolder> {
+public class ListItemAdapterDelegate<I extends T, T> extends AbsListItemAdapterDelegate<I, T, ItemViewHolder<I>> {
 
     @LayoutRes
     private int layoutId;
@@ -39,7 +39,7 @@ public class ListItemAdapterDelegate<I extends T, T> extends AbsListItemAdapterD
 
     @NonNull
     @Override
-    protected ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent) {
+    protected ItemViewHolder<I> onCreateViewHolder(@NonNull ViewGroup parent) {
         ItemViewHolder viewHolder = ItemViewHolder.create(parent, layoutId);
         if (onViewHolderCreate != null) {
             onViewHolderCreate.onViewHolderCreate(viewHolder);
@@ -48,7 +48,8 @@ public class ListItemAdapterDelegate<I extends T, T> extends AbsListItemAdapterD
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull I item, @NonNull ItemViewHolder viewHolder, @NonNull List<Object> payloads) {
+    protected void onBindViewHolder(@NonNull I item, @NonNull ItemViewHolder<I> viewHolder, @NonNull List<Object> payloads) {
+        viewHolder.setItem(item);
         if (viewBinder != null) {
             viewBinder.onBindViewHolder(viewHolder, item, payloads);
         } else if (viewBinderWithoutPayloads != null) {
