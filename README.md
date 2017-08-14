@@ -56,17 +56,17 @@ init {
 
   addDelegate(newDelegateBuilder<Cat>()
     .layout(R.layout.item_cat)
-    .binder { vh, cat -> vh.findView<TextView>(R.id.name).text = cat.name }
+    .binder { vh, cat -> vh.findView<TextView>(R.id.name)?.text = cat.name }
     .build())
 
   addDelegate(newDelegateBuilder<Dog>()
     .layout(R.layout.item_dog)
-    .binder { vh, dog -> vh.findView<TextView>(R.id.name).text = dog.name }
+    .binder { vh, dog -> vh.findView<TextView>(R.id.name)?.text = dog.name }
     .build())
 
-  setFallbackDelegate(createDelegateBuilder(DisplayableItem::class.java)
+  setFallbackDelegate(newDelegateBuilder<DisplayableItem>()
     .layout(android.R.layout.simple_list_item_1)
-    .binder { vh, item -> vh.findView<TextView>(android.R.id.text1).text = item.toString() }
+    .binder { vh, item -> vh.findView<TextView>(android.R.id.text1)?.text = item.toString() }
     .build())
   }
 }
@@ -95,10 +95,10 @@ allprojects {
 ```groovy
 dependencies {
   // For Java Only
-  compile 'im.toss:android-delegationadapter:1.0.2'
+  compile 'im.toss:android-delegationadapter:1.0.4'
 
   // For Kotlin and Java Support
-  compile 'im.toss:android-delegationadapter-kotlin:1.0.3'
+  compile 'im.toss:android-delegationadapter-kotlin:1.0.4'
 ```
 
 ## License

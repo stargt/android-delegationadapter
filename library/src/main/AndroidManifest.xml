@@ -1,6 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="im.toss.adapterdelegatesbuilder">
+<manifest package="im.toss.adapterdelegatesbuilder">
 
-  <application />
+    <application />
 
 </manifest>

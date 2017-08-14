@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2015 Hannes Dorfmann.
   ~
   ~  Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,24 +22,21 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:orientation="vertical"
-    android:background="#EA75FF"
-    >
+    android:background="#EA75FF">
 
 
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Buy here pet food!"
-      android:layout_gravity="center"
-      android:textSize="18sp"
-      />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy here pet food!"
+        android:layout_gravity="center"
+        android:textSize="18sp" />
 
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:text="Super cheap! With lot of love!"
-      android:textSize="14sp"
-      />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Super cheap! With lot of love!"
+        android:textSize="14sp" />
 
 </LinearLayout>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2015 Hannes Dorfmann.
   ~
   ~  Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,31 +22,27 @@
     android:paddingBottom="8dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:background="#FFA185"
-    >
+    android:background="#FFA185">
 
-  <TextView
-      android:id="@+id/name"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_weight="1"
-      android:layout_gravity="center"
-      />
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center" />
 
-  <TextView
-      android:id="@+id/race"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:layout_marginLeft="8dp"
-      />
+    <TextView
+        android:id="@+id/race"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="8dp" />
 
-  <ImageView
-      android:layout_width="80dp"
-      android:layout_height="40dp"
-      android:src="@drawable/geko"
-      android:layout_gravity="center"
-      android:layout_marginLeft="8dp"
-      />
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:src="@drawable/geko"
+        android:layout_gravity="center"
+        android:layout_marginLeft="8dp" />
 
 </LinearLayout>
